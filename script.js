@@ -21,6 +21,11 @@ window.onload = function () {
             `;
             buttonCategories.appendChild(singleBtn)
         })
+        let singleBtn = document.createElement('div')
+        singleBtn.innerHTML = `<button id="allTrees" class=" category-buttons w-[90%] rounded text-start my-2 pl-2"> All Trees </button>`;
+        buttonCategories.prepend(singleBtn)
+        allTrees();
+        
         let categoryButtons = document.querySelectorAll('.category-buttons')
         categoryButtons.forEach((data, index) => {
             index = index+1;
@@ -46,12 +51,20 @@ window.onload = function () {
         // }
     })
 }
+function allTrees () {
+    let allTrees = document.getElementById('allTrees')
+    allTrees.addEventListener('click', () => {
+    Secondlayout.innerHTML = '';
+    buttonCategories.innerHTML = '';
+    window.onload();
+})
+}
 function reUsuableCard (data) {
                 let div = document.createElement('div')
             div.innerHTML = `
                     <div class="bg-white rounded w-[240px]">
-                        <div class="my-card p-5">
-                            <img class="w-[220px] h-[300px]" src="${data.image}" alt="">
+                        <div class="my-card p-2">
+                            <img class="w-[220px] h-[300px] rounded" src="${data.image}" alt="">
                             <h2 class="title text-xl font-bold mt-2"> ${data.name}</h2>
                             <p class="mb-2 opacity-75 text-sm py-2">${data.description}</p>
                             <div class="flex justify-between">
