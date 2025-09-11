@@ -1,23 +1,23 @@
+let Secondlayout = document.getElementById('2nd-layout');
+let buttonCategories = document.getElementById('button-categories');
+
 window.onload = function () {
     fetch('https://openapi.programming-hero.com/api/plants')
     .then(res => res.json())
     .then(data => {
         let plants = data.plants;
-        console.log(plants)
-        let Secondlayout = document.getElementById('2nd-layout')
         plants.forEach(function (data) {
             let div = document.createElement('div')
-            console.log(data)
             div.innerHTML = `
                     <div class="bg-white rounded w-[240px]">
                         <div class="my-card p-5">
                             <img class="w-[220px] h-[300px]" src="${data.image}" alt="">
-                            <h2 class="title"> ${data.name}</h2>
-                            <p>${data.description}</p>
+                            <h2 class="title text-xl font-bold mt-2"> ${data.name}</h2>
+                            <p class="mb-2 opacity-75 text-sm py-2">${data.description}</p>
                             <div class="flex justify-between">
-                                <h3 class="tag bg-[#dcfce7] rounded-lg px-4">Fruit Tree</h3>
+                                <h3 class="tag bg-[#dcfce7] rounded-lg px-4">${data.category}</h3>
                                 <div class="taka">
-                                    <p>30 $ </p>
+                                    <p>${data.price} </p>
                                 </div>
                             </div>
                             <button class="w-full bg-green-500 rounded-lg mt-3">Add to cart</button>
@@ -25,6 +25,19 @@ window.onload = function () {
                     </div>
             `;
             Secondlayout.appendChild(div);
+        })
+    })
+    fetch('https://openapi.programming-hero.com/api/categories')
+    .then(res => res.json())
+    .then(data => {
+        let categories = data.categories;
+        categories.forEach(data => {
+            console.log(data)
+            let singleBtn = document.createElement('div')
+            singleBtn.innerHTML = `
+                <button class="w-[90%] rounded text-start my-2 pl-2"> ${data.category_name} </button>
+            `;
+            buttonCategories.appendChild(singleBtn)
         })
     })
 }
