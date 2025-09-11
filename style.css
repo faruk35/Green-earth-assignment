@@ -1,0 +1,9 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.footer-bottom {
+    background-color: #14532D !important;
+    color: white !important;
+}
