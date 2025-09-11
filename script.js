@@ -7,7 +7,47 @@ window.onload = function () {
     .then(data => {
         let plants = data.plants;
         plants.forEach(function (data) {
-            let div = document.createElement('div')
+            reUsuableCard(data);
+        })
+    })
+    fetch('https://openapi.programming-hero.com/api/categories')
+    .then(res => res.json())
+    .then(data => {
+        let categories = data.categories;
+        categories.forEach(data => {
+            let singleBtn = document.createElement('div')
+            singleBtn.innerHTML = `
+                <button class=" category-buttons w-[90%] rounded text-start my-2 pl-2"> ${data.category_name} </button>
+            `;
+            buttonCategories.appendChild(singleBtn)
+        })
+        let categoryButtons = document.querySelectorAll('.category-buttons')
+        categoryButtons.forEach((data, index) => {
+            index = index+1;
+            data.addEventListener('click', () => {
+                let url = `https://openapi.programming-hero.com/api/category/${index}`
+                Secondlayout.innerHTML = '';
+                fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    let plants = data.plants
+                    console.log(plants)
+                        plants.forEach(function (data) {
+                        reUsuableCard(data);
+                    })
+                })
+            })
+        })
+        // for (let data of categoryButtons) {
+        //     console.log(data)
+        //     data.addEventListener('click', () => {
+        //         console.log(cateb)
+        //     })
+        // }
+    })
+}
+function reUsuableCard (data) {
+                let div = document.createElement('div')
             div.innerHTML = `
                     <div class="bg-white rounded w-[240px]">
                         <div class="my-card p-5">
@@ -25,19 +65,4 @@ window.onload = function () {
                     </div>
             `;
             Secondlayout.appendChild(div);
-        })
-    })
-    fetch('https://openapi.programming-hero.com/api/categories')
-    .then(res => res.json())
-    .then(data => {
-        let categories = data.categories;
-        categories.forEach(data => {
-            console.log(data)
-            let singleBtn = document.createElement('div')
-            singleBtn.innerHTML = `
-                <button class="w-[90%] rounded text-start my-2 pl-2"> ${data.category_name} </button>
-            `;
-            buttonCategories.appendChild(singleBtn)
-        })
-    })
 }
