@@ -48,9 +48,9 @@
     <!-- vejailla section starts from here  -->
     <section class="vejailla">
         <h2 class="text-center my-6 font-bold text-2xl opacity-75">Choose Your Trees</h2>
-        <div class='w-[1300px] mx-auto flex justify-between gap-4'>
-            <div class="category bg-blue-100 w-1/5">
-                <h2 class="text-2xl text-center">Category</h2>
+        <div class='w-[1300px] mx-auto flex justify-between gap-2'>
+            <div class="category bg-blue-100 w-1/5 py-3">
+                <h2 class="text-2xl text-center mb-2">Category</h2>
                 <div id="button-categories">
                     <!-- <div class="single-btn"><button class="w-[90%] bg-green-500 rounded text-start my-2 pl-2">All
                         Trees</button>
@@ -64,14 +64,14 @@
             <!-- Bookmart section starts here  -->
             <div class="bookmark w-1/5">
                 <div class="">
-                    <h2 class="text-2xl text-center font-bold bg-red-300">Add to Cart</h2>
+                    <h2 class="text-2xl text-center font-bold bg-blue-100 py-3 rounded">Add to Cart</h2>
                     <!-- this part is dynamic  -->
                     <div id="cartInsertion">
 
                     </div>
-                    <div class="result flex justify-between bg-green-500">
-                        <p>Total: </p>
-                        <p>$ <span id="totalResult"> 1000</span></p>
+                    <div class="result flex justify-between bg-green-500 px-3">
+                        <p>Total : </p>
+                        <p>৳ <span id="totalResult"> 0</span></p>
                     </div>
                 </div>
             </div>
@@ -136,5 +136,19 @@
             <p>© 2025 Green Earth. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <dialog id="myModal" class="modal">
+    <div class="modal-box p-4">
+        <h3 id="modalTitle" class="font-bold text-lg"></h3>
+        <img id="modalImage" class="w-full h-60 object-cover rounded my-3" />
+        <p class="text-sm opacity-70">Category: <span id="modalCategory"></span></p>
+        <p class="font-semibold">Price: ৳ <span id="modalPrice"></span></p>
+        <p id="modalDescription" class="py-2"></p>
+        <div class="modal-action">
+        <button class="btn btn-outline px-3 bg-green-600 text-white" onclick="myModal.close()">Close</button>
+        </div>
+    </div>
+    </dialog>
+
     <script src="script.js"></script>
 </body>

@@ -85,13 +85,13 @@ let renderMyUi = (cart) => {
     cart.forEach((item, index) => {
         let div = document.createElement('div');
         div.innerHTML = `
-                            <div class="cartDynamic flex justify-between items-center px-3 py-2 bg-blue-300 rounded">
+                            <div class="cartDynamic flex justify-between items-center px-3 py-2 bg-blue-200 rounded">
                                 <div>
-                                    <h2>${item.name}</h2>
-                                    <p>$ <span>${item.price}</span> * <span>${item.quantity}</span></p>
+                                    <h2 class='font-semibold'>${item.name}</h2>
+                                    <p> ৳ <span>${item.price}</span> <i class="fa-solid fa-xmark"></i> <span>${item.quantity}</span></p>
                                 </div>
                                 <div>
-                                    <button class="deleteBtn bg-red-500 text-white px-2 rounded"> * </button>
+                                    <button class="deleteBtn bg-red-500 text-white px-2 rounded"> <i class="fa-solid fa-xmark"></i> </button>
                                 </div>
                             </div> `;
         div.querySelector('.deleteBtn').addEventListener('click', () => {
@@ -113,22 +113,32 @@ let removeFromCart = (index) => {
 function reUsuableCard (data) {
                 let div = document.createElement('div')
             div.innerHTML = `
-                    <div class="bg-white rounded w-[240px]">
-                        <div class="my-card p-2">
+                    <div class="bg-white rounded w-[240px] shadow-lg">
+                        <div class="my-card p-1">
                             <img class="w-[220px] h-[250px] rounded" src="${data.image}" alt="">
-                            <h2 class="title text-xl font-bold mt-2"> ${data.name}</h2>
+                            <h2 class="title text-xl font-bold mt-2 cursor-pointer"> ${data.name}</h2>
                             <p class="mb-2 opacity-75 text-sm pb-5 pt-2 truncate-text">${data.description}</p>
-                            <div class="flex justify-between">
-                                <h3 class="tag bg-[#dcfce7] rounded-lg px-4">${data.category}</h3>
-                                <div class="taka">
-                                    <p>${data.price} </p>
+                            <div class="flex justify-between items-center">
+                                <h3 class="tag bg-[#dcfce7] rounded-lg px-3">${data.category}</h3>
+                                <div class="taka flex">
+                                    <p id='realP'>${data.price}</p>
                                 </div>
                             </div>
-                            <button class="addToCart w-full bg-green-600 rounded-lg mt-3 hover:text-white">Add to cart</button>
+                            <button class="addToCart w-full bg-green-600 rounded-lg mt-3 hover:text-white text-xl py-1">Add to cart</button>
                         </div>
                     </div>
             `;
             Secondlayout.appendChild(div);
+
+                div.querySelector('.title').addEventListener('click', () => {
+                document.getElementById('modalTitle').innerText = data.name;
+                document.getElementById('modalImage').src = data.image;
+                document.getElementById('modalCategory').innerText = data.category;
+                document.getElementById('modalPrice').innerText = data.price;
+                document.getElementById('modalDescription').innerText = data.description;
+                document.getElementById('myModal').showModal();
+
+            });
 
             document.querySelectorAll('.addToCart').forEach(btn => {
                 btn.replaceWith(btn.cloneNode(true));
