@@ -28,7 +28,6 @@ window.onload = function () {
         
         let categoryButtons = document.querySelectorAll('.category-buttons')
         categoryButtons.forEach((data, index) => {
-            index = index+1;
             data.addEventListener('click', () => {
                 categoryButtons.forEach(data => data.classList.remove('bg-green-500'))
                 data.classList.add('bg-green-500')
@@ -38,7 +37,6 @@ window.onload = function () {
                 .then(res => res.json())
                 .then(data => {
                     let plants = data.plants
-                    console.log(plants)
                         plants.forEach(function (data) {
                         reUsuableCard(data);
                     })
@@ -47,6 +45,7 @@ window.onload = function () {
         })
     })
 }
+
 function allTrees () {
     let allTrees = document.getElementById('allTrees')
     allTrees.addEventListener('click', () => {
@@ -69,9 +68,22 @@ function reUsuableCard (data) {
                                     <p>${data.price} </p>
                                 </div>
                             </div>
-                            <button class="w-full bg-green-500 rounded-lg mt-3">Add to cart</button>
+                            <button class="addToCart w-full bg-green-500 rounded-lg mt-3">Add to cart</button>
                         </div>
                     </div>
             `;
             Secondlayout.appendChild(div);
+
+            document.querySelectorAll('.addToCart').forEach(btn => {
+                btn.replaceWith(btn.cloneNode(true));
+            });            
+
+            document.querySelectorAll('.addToCart').forEach(btn => {
+            btn.addEventListener('click', () => {
+            let card = btn.closest('.my-card');
+                let price = card.querySelector('.taka p').innerText;
+                let name = card.querySelector('.title').innerText;
+                console.log(name, price);
+            })
+})
 }
