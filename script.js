@@ -30,6 +30,8 @@ window.onload = function () {
         categoryButtons.forEach((data, index) => {
             index = index+1;
             data.addEventListener('click', () => {
+                categoryButtons.forEach(data => data.classList.remove('bg-green-500'))
+                data.classList.add('bg-green-500')
                 let url = `https://openapi.programming-hero.com/api/category/${index}`
                 Secondlayout.innerHTML = '';
                 fetch(url)
@@ -43,12 +45,6 @@ window.onload = function () {
                 })
             })
         })
-        // for (let data of categoryButtons) {
-        //     console.log(data)
-        //     data.addEventListener('click', () => {
-        //         console.log(cateb)
-        //     })
-        // }
     })
 }
 function allTrees () {
