@@ -52,8 +52,53 @@ function allTrees () {
     Secondlayout.innerHTML = '';
     buttonCategories.innerHTML = '';
     window.onload();
-})
+})}
+
+let cart = [];
+
+let addToCart = (name, price) => {
+    let existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name: name, price: price, quantity: 1 });
+    }
+    renderMyUi(cart)
 }
+
+let renderMyUi = (cart) => {
+    console.log(cart)
+    let cartInsertion = document.getElementById('cartInsertion');
+    cartInsertion.innerHTML = ''
+
+    cart.forEach((item, index) => {
+        let div = document.createElement('div');
+        div.innerHTML = `
+                            <div class="cartDynamic flex justify-between items-center px-3 py-2 bg-blue-300 rounded">
+                                <div>
+                                    <h2>${item.name}</h2>
+                                    <p>$ <span>${item.price}</span> * <span>${item.quantity}</span></p>
+                                </div>
+                                <div>
+                                    <button class="deleteBtn bg-red-500 text-white px-2 rounded"> * </button>
+                                </div>
+                            </div> `;
+        div.querySelector('.deleteBtn').addEventListener('click', () => {
+            removeFromCart(index);
+        })
+        cartInsertion.appendChild(div);
+    })
+    calculateTheTotal() ;
+}
+let calculateTheTotal = () => {
+    let total = cart.reduce((sum, item) => sum + (parseFloat(item.price) * item.quantity ), 0 )
+    document.getElementById('totalResult').innerText = total;
+}
+let removeFromCart = (index) => {
+    cart.splice(index, 1);
+    renderMyUi(cart);
+}
+
 function reUsuableCard (data) {
                 let div = document.createElement('div')
             div.innerHTML = `
@@ -83,7 +128,7 @@ function reUsuableCard (data) {
             let card = btn.closest('.my-card');
                 let price = card.querySelector('.taka p').innerText;
                 let name = card.querySelector('.title').innerText;
-                console.log(name, price);
+                addToCart(name, price)
             })
 })
 }
