@@ -2,6 +2,7 @@ let Secondlayout = document.getElementById('2nd-layout');
 let buttonCategories = document.getElementById('button-categories');
 
 window.onload = function () {
+    showSpinner();
     fetch('https://openapi.programming-hero.com/api/plants')
     .then(res => res.json())
     .then(data => {
@@ -9,6 +10,7 @@ window.onload = function () {
         plants.forEach(function (data) {
             reUsuableCard(data);
         })
+        hideSpinner();
     })
     fetch('https://openapi.programming-hero.com/api/categories')
     .then(res => res.json())
@@ -29,6 +31,7 @@ window.onload = function () {
         let categoryButtons = document.querySelectorAll('.category-buttons')
         categoryButtons.forEach((data, index) => {
             data.addEventListener('click', () => {
+                showSpinner();
                 categoryButtons.forEach(data => data.classList.remove('bg-green-600'))
                 data.classList.add('bg-green-600')
                 let url = `https://openapi.programming-hero.com/api/category/${index}`
@@ -40,6 +43,7 @@ window.onload = function () {
                         plants.forEach(function (data) {
                         reUsuableCard(data);
                     })
+                    hideSpinner();
                 })
             })
         })
@@ -54,14 +58,16 @@ function allTrees () {
         categoryButtons.forEach(btn => btn.classList.remove('bg-green-600'));
         allTrees.classList.add('bg-green-600');
         
-    Secondlayout.innerHTML = '';
-    fetch('https://openapi.programming-hero.com/api/plants')
+        Secondlayout.innerHTML = '';
+        showSpinner();
+        fetch('https://openapi.programming-hero.com/api/plants')
     .then(res => res.json())
     .then(data => {
         let plants = data.plants;
         plants.forEach(function (data) {
             reUsuableCard(data);
         })
+        hideSpinner();
     })
 })}
 
@@ -101,6 +107,8 @@ let renderMyUi = (cart) => {
     })
     calculateTheTotal() ;
 }
+
+
 let calculateTheTotal = () => {
     let total = cart.reduce((sum, item) => sum + (parseFloat(item.price) * item.quantity ), 0 )
     document.getElementById('totalResult').innerText = total;
@@ -152,4 +160,15 @@ function reUsuableCard (data) {
                 addToCart(name, price)
             })
 })
+}
+
+// Spinner Loading functionalities 
+let spinner = document.getElementById('spinner');
+
+function showSpinner() {
+    spinner.classList.remove('hidden');
+}
+
+function hideSpinner() {
+    spinner.classList.add('hidden');
 }
