@@ -12,8 +12,8 @@
 </head>
 
 <body class="bg-[#f0fdf4]">
-    <header class="bg-green-500 h-[50px]">
-        <nav class="sm:flex justify-between items-center px-6 h-full">
+    <header class="bg-green-500 sm:h-[50px] py-2 sm:py-0">
+        <nav class="sm:flex sm:justify-between justify-center items-center px-6 h-full">
             <div class="flex items-center gap-3">
                 <img class="h-[40px] w-auto" src="./assets/about.png" alt="">
                 <h1 class="text-white font-bold text-lg">Green Earth</h1>
@@ -29,11 +29,12 @@
                 Tree</button>
         </nav>
     </header>
-    <section class="hero-section flex justify-between items-center bg-[#CFF0DC] max-w-full mb-5">
-        <div class="left-leaf">
+
+    <section class="hero-section sm:flex justify-between items-center bg-[#CFF0DC] sm:max-w-full mb-5">
+        <div class="left-leaf sm:h-full h-[200px]">
             <img class=" h-full w-full object-cover" src="./assets/hero-leaf1.png" alt="">
         </div>
-        <div class="content">
+        <div class="content my-5 sm:my-0 px-3">
             <h2 class="text-4xl text-center pb-3 font-bold">Plant a Tree, Grow a Future</h2>
             <p class="font-semibold opacity-50 text-center text-sm ">Join our mission to plant 1 million trees and make
                 the Earth greener for future generations.</p>
@@ -41,12 +42,12 @@
                 class="bg-[#FACC15] mx-auto flex justify-center mt-5 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-100">Get
                 Involved</button>
         </div>
-        <div class="left-leaf">
+        <div class="left-leaf sm:h-full h-[200px]">
             <img class="h-full w-full object-cover" src="./assets/hero-leaf2.png" alt="">
         </div>
     </section>
     <!-- vejailla section starts from here  -->
-    <section class="vejailla">
+    <section class="vejailla ">
         <h2 class="text-center my-6 font-bold text-2xl opacity-75">Choose Your Trees</h2>
         <div id="spinner" class="hidden flex justify-center items-center text-center mx-auto">
             <span class="loading loading-ball loading-xs"></span>
@@ -55,8 +56,8 @@
             <span class="loading loading-ball loading-lg"></span>
             <span class="loading loading-ball loading-xl"></span>
         </div>
-        <div class='w-[1300px] mx-auto flex justify-between gap-2'>
-            <div class="category bg-blue-100 w-1/5 py-3">
+        <div class='sm:w-[1300px] w-[90%] mx-auto sm:flex flex-wrap sm:justify-between gap-2'>
+            <div class="category bg-blue-100 sm:w-1/5 py-3 mx-auto">
                 <h2 class="text-2xl text-center mb-2">Category</h2>
                 <div id="button-categories">
                     <!-- <div class="single-btn"><button class="w-[90%] bg-green-500 rounded text-start my-2 pl-2">All
@@ -66,10 +67,10 @@
             </div>
             <!-- spinner loadding time  -->
             
-            <div id="2nd-layout" class="2nd-layout flex flex-wrap w-3/5 gap-2">
+            <div id="2nd-layout" class="2nd-layout sm:flex sm:w-3/5 gap-2 mx-auto w-[90%]">
             </div>
             <!-- Bookmart section starts here  -->
-            <div class="bookmark w-1/5">
+            <div class="bookmark sm:w-1/5 my-6 sm:mt-0">
                 <div class="">
                     <h2 class="text-2xl text-center font-bold bg-blue-100 py-3 rounded">Add to Cart</h2>
                     <!-- this part is dynamic  -->
@@ -87,9 +88,9 @@
 
     </section>
 
-    <section class="campaign w-[900px] mx-auto py-4 my-6">
-        <h2 class="text-center text-4xl pb-5">About the campaign </h2>
-        <div class="flex justify-between flex gap-5 items-center">
+    <section class="campaign sm:w-[900px] mx-auto py-4 my-6 pl-7">
+        <h2 class="sm:text-center text-4xl pb-5 text-center">About the campaign </h2>
+        <div class="sm:flex justify-between gap-5 items-center">
             <div class="campaign-left w-1/2 bg-[#f5f5f7]">
                 <img src="./assets/about.png" alt="">
             </div>
@@ -105,29 +106,29 @@
             </div>
         </div>
     </section>
-    <section class="impact mt-6 bg-[#cff0dc] h-[300px] px-6">
+    <section class="impact mt-6 bg-[#cff0dc] sm:h-[300px] px-6">
         <div class="w-[90%] mx-auto ">
             <h2 class="text-center font-semibold text-2xl pt-14 pb-5">Our Impact</h2>
-            <div class="flex justify-between items-center ">
-                <div class="transform transition duration-300 hover:scale-105 cursor-pointer cursor-pointer statistics bg-white rounded-lg h-[100px] w-[360px] flex flex-col justify-center items-center">
+            <div class="sm:flex justify-between items-center">
+                <div class="transform transition duration-300 hover:scale-105 cursor-pointer cursor-pointer statistics bg-white rounded-lg h-[100px] w-[360px] flex flex-col justify-center items-center mb-5 sm:mb-0">
                     <h3 class="text-2xl text-green-600 font-bold pb-1">500K+</h3>
                     <p class="opacity-75">Trees Planted</p>
                 </div>
-                <div class="transform transition duration-300 hover:scale-105 cursor-pointer cursor-pointer statistics bg-white rounded-lg h-[100px] w-[360px] flex flex-col justify-center items-center">
+                <div class="transform transition duration-300 hover:scale-105 cursor-pointer cursor-pointer statistics bg-white rounded-lg h-[100px] w-[360px] flex flex-col justify-center items-center mb-5 sm:mb-0">
                     <h3 class="text-2xl text-green-600 font-bold pb-1">120+</h3>
                     <p class="opacity-75">Communities Involved</p>
                 </div>
-                <div class="transform transition duration-300 hover:scale-105 cursor-pointer cursor-pointer statistics bg-white rounded-lg h-[100px] w-[360px] flex flex-col justify-center items-center">
+                <div class="transform transition duration-300 hover:scale-105 cursor-pointer cursor-pointer statistics bg-white rounded-lg h-[100px] w-[360px] flex flex-col justify-center items-center mb-5 sm:mb-0">
                     <h3 class="text-2xl text-green-600 font-bold pb-1">30+</h3>
                     <p class="opacity-75">Countris Reached</p>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="bg-[#166534] h-[450px]">
+    <footer class="bg-[#166534] sm:h-[450px]">
         <div class="footer-up">
             <h2 class="font-bold text-2xl text-white text-center pt-8">Plant a Tree Today</h2>
-            <fieldset class="bg-[#15803d] border-base-300 rounded-box w-[40%] mx-auto border p-10 mt-10">
+            <fieldset class="bg-[#15803d] border-base-300 rounded-box sm:w-[40%] w-[90%] mx-auto border p-10 mt-10">
                 <input type="text" class="input w-full mb-2 pl-3" placeholder="Your Name" /> <br>
                 <input type="email" class="input w-full mb-2 pl-3" placeholder="Your Email Address" /> <br>
                 <select name="" id="" class="w-full bg-white py-2 text-lg pl-2 mb-2 rounded">

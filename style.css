@@ -13,3 +13,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.logo-title{
+    margin: 0px auto;
+    display: flex;
+    text-align: center;
+}

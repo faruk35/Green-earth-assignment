@@ -121,9 +121,9 @@ let removeFromCart = (index) => {
 function reUsuableCard (data) {
                 let div = document.createElement('div')
             div.innerHTML = `
-                    <div class="bg-white rounded w-[240px] shadow-lg">
+                    <div class="bg-white rounded sm:w-[240px] w-[400px] shadow-lg">
                         <div class="my-card p-1">
-                            <img class="w-[220px] h-[250px] rounded" src="${data.image}" alt="">
+                            <img class="sm:w-[220px] sm:h-[250px] w-[400px] h-[400px] rounded" src="${data.image}" alt="">
                             <h2 class="title text-xl font-bold mt-2 cursor-pointer"> ${data.name}</h2>
                             <p class="mb-2 opacity-75 text-sm pb-5 pt-2 truncate-text">${data.description}</p>
                             <div class="flex justify-between items-center">
