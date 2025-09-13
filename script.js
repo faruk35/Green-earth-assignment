@@ -123,16 +123,16 @@ function reUsuableCard (data) {
             div.innerHTML = `
                     <div class="bg-white rounded sm:w-[240px] w-[400px] shadow-lg">
                         <div class="my-card p-3 mt-4 sm:mt-0">
-                            <img class="sm:w-[220px] sm:h-[250px] w-[400px] h-[400px] rounded" src="${data.image}" alt="">
-                            <h2 class="title text-xl font-bold mt-2 cursor-pointer"> ${data.name}</h2>
-                            <p class="mb-2 opacity-75 text-sm pb-5 pt-2 truncate-text">${data.description}</p>
-                            <div class="flex justify-between items-center">
+                            <img class="sm:w-[220px] sm:h-[250px] w-[400px] h-[400px] rounded  px-2 sm:px-0" src="${data.image}" alt="">
+                            <h2 class="title text-xl font-bold mt-2 cursor-pointer px-2 sm:px-0"> ${data.name}</h2>
+                            <p class="mb-2 opacity-75 text-sm pb-5 pt-2 truncate-text px-2 sm:px-0">${data.description}</p>
+                            <div class="flex justify-between items-center px-2 sm:px-0">
                                 <h3 class="tag bg-[#dcfce7] rounded-lg px-3">${data.category}</h3>
                                 <div class="taka flex">
                                     <p id='realP'>${data.price}</p>
                                 </div>
                             </div>
-                            <button class="addToCart w-full bg-green-600 rounded-lg mt-3 hover:text-white text-xl py-1">Add to cart</button>
+                            <button class="addToCart w-full bg-green-600 rounded-lg mt-3 hover:text-white text-xl py-1 px-2 sm:px-0">Add to cart</button>
                         </div>
                     </div>
             `;
